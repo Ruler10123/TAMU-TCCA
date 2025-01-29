@@ -8,37 +8,37 @@ import { useState } from "react";
 
 const activities = [
   {
-    image: "/adopt-a-street.jpg",
+    image: "/TAMU-TCCA/adopt-a-street.jpg",
     title: "Adopt a Street",
     description: "Community Clean-up Initiative"
   },
   {
-    image: "/origami.jpg",
+    image: "/TAMU-TCCA/origami.jpg",
     title: "Disaster Relief Fundraising",
     description: "Origami Workshop"
   },
   {
-    image: "/campus-cleanup.jpg",
+    image: "/TAMU-TCCA/campus-cleanup.jpg",
     title: "Campus Cleanup",
     description: "Environmental Stewardship"
   },
   {
-    image: "/dumplings-cultural-exchange.jpg",
+    image: "/TAMU-TCCA/dumplings-cultural-exchange.jpg",
     title: "Dumpling Making",
     description: "Cultural Culinary Workshop"
   },
   {
-    image: "/houston-based.jpg",
+    image: "/TAMU-TCCA/houston-based.jpg",
     title: "Houston Service",
     description: "Community Outreach"
   },
   {
-    image: "/potluck.jpg",
+    image: "/TAMU-TCCA/potluck.jpg",
     title: "Community Potluck",
     description: "Building Connections"
   },
   {
-    image: "/humanitarian-workshops.jpg",
+    image: "/TAMU-TCCA/humanitarian-workshops.jpg",
     title: "Humanitarian Aid",
     description: "Global Impact"
   }
@@ -82,7 +82,7 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
                 <Image
-                  src="/tcca-logo.png"
+                  src="/TAMU-TCCA/tcca-logo.png"
                   alt="TCCA Logo"
                   fill
                   style={{ objectFit: "contain" }}
