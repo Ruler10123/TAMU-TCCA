@@ -16,7 +16,7 @@ export default function About() {
           <div className="prose prose-emerald mx-auto lg:max-w-3xl">
             <p className="text-gray-500 leading-relaxed mb-6">
               Welcome to TCCA at Texas A&M University. We are dedicated to promoting morals, strengthening character, 
-              and instilling a spirit of "great mercy even to strangers, and great compassion for all." Our organization 
+              and instilling a spirit of &ldquo;great mercy even to strangers, and great compassion for all.&rdquo; Our organization 
               exemplifies humility, respect, and elegance in character, serving as an example for all young people in our community.
             </p>
 
