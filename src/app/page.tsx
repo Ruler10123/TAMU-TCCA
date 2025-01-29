@@ -8,37 +8,37 @@ import { useState } from "react";
 
 const activities = [
   {
-    image: "/TAMU-TCCA/adopt-a-street.jpg",
+    image: "/adopt-a-street.jpg",
     title: "Adopt a Street",
     description: "Community Clean-up Initiative"
   },
   {
-    image: "/TAMU-TCCA/origami.jpg",
+    image: "/origami.jpg",
     title: "Disaster Relief Fundraising",
     description: "Origami Workshop"
   },
   {
-    image: "/TAMU-TCCA/campus-cleanup.jpg",
+    image: "/campus-cleanup.jpg",
     title: "Campus Cleanup",
     description: "Environmental Stewardship"
   },
   {
-    image: "/TAMU-TCCA/dumplings-cultural-exchange.jpg",
+    image: "/dumplings-cultural-exchange.jpg",
     title: "Dumpling Making",
     description: "Cultural Culinary Workshop"
   },
   {
-    image: "/TAMU-TCCA/houston-based.jpg",
+    image: "/houston-based.jpg",
     title: "Houston Service",
     description: "Community Outreach"
   },
   {
-    image: "/TAMU-TCCA/potluck.jpg",
+    image: "/potluck.jpg",
     title: "Community Potluck",
     description: "Building Connections"
   },
   {
-    image: "/TAMU-TCCA/humanitarian-workshops.jpg",
+    image: "/humanitarian-workshops.jpg",
     title: "Humanitarian Aid",
     description: "Global Impact"
   }
@@ -81,12 +81,12 @@ export default function Home() {
           <div className="text-center">
             <div className="flex justify-center">
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
-                <Image
-                  src="/TAMU-TCCA/tcca-logo.png"
+        <Image
+                  src="/tcca-logo.png"
                   alt="TCCA Logo"
                   fill
                   style={{ objectFit: "contain" }}
-                  priority
+          priority
                   className="drop-shadow-lg"
                 />
               </div>
@@ -142,8 +142,8 @@ export default function Home() {
                       filter: hoveredIndex !== null && hoveredIndex !== index ? 'blur(2px)' : 'none',
                       boxShadow: hoveredIndex === index ? '0 0 20px rgba(5, 150, 105, 0.4)' : '',
                     }}
-                  >
-                    <Image
+        >
+          <Image
                       src={activity.image}
                       alt={activity.title}
                       fill
