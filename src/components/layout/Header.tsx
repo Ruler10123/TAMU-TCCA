@@ -10,7 +10,7 @@ const Header = () => {
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-12 h-12 relative">
                 <Image
-                  src="/Reveille.jpg"
+                  src="/ReveilleTrans-02.jpg"
                   alt="TCCA Logo"
                   fill
                   style={{ objectFit: "contain" }}

@@ -82,7 +82,7 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
         <Image
-                  src="/tcca-logo.png"
+                  src="/Reveille.jpg"
                   alt="TCCA Logo"
                   fill
                   style={{ objectFit: "contain" }}
