@@ -87,11 +87,11 @@ export default function Home() {
                   fill
                   style={{ objectFit: "contain" }}
           priority
-                  className="drop-shadow-lg"
+                  className="z-0"
                 />
               </div>
             </div>
-            <h1 className="-mt-8 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+            <h1 className="-mt-8 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl z-1">
               <span className="block text-gray-500">Welcome to</span>
               <span className="block text-emerald-700">Tzu Chi Collegiate Association</span>
             </h1>
