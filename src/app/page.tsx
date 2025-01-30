@@ -5,6 +5,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import LotusPetals from "@/components/animations/LotusPetals";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
 
 const activities = [
   {
@@ -76,53 +92,104 @@ export default function Home() {
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 z-0"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-[25] to-transparent" />
+          <LotusPetals />
+        </motion.div>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <div className="flex justify-center">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className="text-center relative z-10"
+          >
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex justify-center"
+            >
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
-        <Image
+                <Image
                   src="/Reveille.jpg"
                   alt="TCCA Logo"
                   fill
-                  style={{ objectFit: "contain" }}
-          priority
-                  className="z-0"
+                  style={{ objectFit: "contain", mixBlendMode: "multiply" }}
+                  priority
+                  className="opacity-90"
                 />
               </div>
-            </div>
-            <h1 className="-mt-8 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl z-1">
-              <span className="block text-gray-500">Welcome to</span>
-              <span className="block text-emerald-700">Tzu Chi Collegiate Association</span>
-            </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+                <motion.span 
+                  variants={fadeInUp}
+                  className="block text-gray-500"
+                >
+                  Welcome to
+                </motion.span>
+                <motion.span 
+                  variants={fadeInUp}
+                  className="block text-emerald-700"
+                >
+                  Tzu Chi Collegiate Association
+                </motion.span>
+              </h1>
+            </motion.div>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-3 max-w-md mx-auto text-base text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+            >
               Join us in promoting compassion, charity, and community service at Texas A&M University.
-            </p>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
+            </motion.p>
+            <motion.div 
+              variants={fadeInUp}
+              className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
+            >
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="rounded-md shadow"
+              >
                 <a href="/contact" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-10">
                   Join Us
                 </a>
-              </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a href="/about" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3"
+              >
+                <a href="/about" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 border-emerald-600 md:py-4 md:text-lg md:px-10">
                   Learn More
                 </a>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Photo Showcase Section */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-base text-emerald-600 font-semibold tracking-wide uppercase">Our Impact</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Making a Difference in Our Community
             </p>
-          </div>
+          </motion.div>
           <div className="relative">
             <Slider {...settings} className="activity-carousel">
               {activities.map((activity, index) => (
@@ -165,22 +232,35 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 bg-emerald-50">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:text-center"
+          >
             <h2 className="text-base text-emerald-600 font-semibold tracking-wide uppercase">Our Activities</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Making a Difference Together
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
               Join us in our various activities and initiatives to help create positive change in our community.
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-20">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {/* Activity 1 */}
-              <div className="pt-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -5 }}
+                className="pt-6"
+              >
                 <div className="flow-root bg-white rounded-lg px-6 pb-8">
                   <div className="-mt-6">
                     <div className="inline-flex items-center justify-center p-3 bg-emerald-500 rounded-md shadow-lg">
@@ -194,10 +274,17 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Activity 2 */}
-              <div className="pt-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{ y: -5 }}
+                className="pt-6"
+              >
                 <div className="flow-root bg-white rounded-lg px-6 pb-8">
                   <div className="-mt-6">
                     <div className="inline-flex items-center justify-center p-3 bg-emerald-500 rounded-md shadow-lg">
@@ -211,10 +298,17 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Activity 3 */}
-              <div className="pt-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                whileHover={{ y: -5 }}
+                className="pt-6"
+              >
                 <div className="flow-root bg-white rounded-lg px-6 pb-8">
                   <div className="-mt-6">
                     <div className="inline-flex items-center justify-center p-3 bg-emerald-500 rounded-md shadow-lg">
@@ -228,7 +322,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
