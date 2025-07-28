@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFileSync, appendFileSync } from 'fs';
+import { appendFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
 // Google Apps Script Web App URL (optional)
@@ -37,9 +37,8 @@ export async function POST(request: NextRequest) {
       const filePath = join(dataDir, 'contact-submissions.json');
       
       // Create data directory if it doesn't exist
-      const fs = require('fs');
-      if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
+      if (!existsSync(dataDir)) {
+        mkdirSync(dataDir, { recursive: true });
       }
       
       // Append to file
