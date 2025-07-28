@@ -2,11 +2,13 @@
   "name": "tcca",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "convert-to-csv": "node scripts/convert-json-to-csv.js"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",
